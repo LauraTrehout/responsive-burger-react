@@ -1,0 +1,135 @@
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    min-height: 75px;
+    background-color: #000;
+}
+
+.navbar-logo {
+    color: #fff
+}
+
+.nav-list {
+ display: flex;
+}
+
+.nav-link {
+    padding: 0.3rem;
+    color: #fff;
+}
+
+.nav-link:hover {
+    color: lightseagreen;
+}
+
+.nav-burger {
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    border: none;
+}
+
+.burger-bar {
+    color: #fff;
+}
+
+@media screen and (max-width:760px) {
+    .nav-list {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right: -100vw;
+        bottom: 0;
+        height: 100vh;
+        padding: 2rem;
+        background-color: #000;
+        visibility: hidden;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .show-nav .nav-list {
+        width: 100vw;
+        right: 0;
+        visibility: visible;
+    }
+
+    .nav-link {
+        display: block;
+        font-size: 4vw;
+        padding: 3.5rem;
+    }
+
+    .nav-list-item {
+        display: block;
+        
+    }
+
+    .nav-burger {
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .nav-burger:hover {
+        cursor: pointer;
+    }
+
+    .burger-bar, 
+    .burger-bar::before,
+    .burger-bar::after {
+        display: block;
+        width: 40px;
+        height: 3px;
+        position: relative;
+        background-color: #fff;
+        border-radius: 3px;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .burger-bar::before,
+    .burger-bar::after {
+        content:'';
+        position: absolute;
+        left: 0;
+    }
+
+    .burger-bar::before {
+        transform: translateY(-12px);
+    }
+
+    .burger-bar::after {
+        transform: translateY(12px);
+    }
+
+    .show-nav .burger-bar {
+        background: transparent;
+    }
+    
+    .show-nav .burger-bar::before {
+        transform: rotate(45deg);
+    }
+
+    .show-nav .burger-bar::after {
+        transform: rotate(-45deg);
+    }
+
+    .nav-list-item::after {
+        content: '';
+        display: block;
+        margin: 0 auto;
+        width: 3vw;
+        height: 1px;
+        background-color: #fff;
+    }
+
+    .nav-list-item:last-child::after {
+        display: none;
+    }
+}
